@@ -139,7 +139,7 @@ ul.icr-port-bullet-list
 
 .icr-port-user-account-nav
     @extend %icr-port-popover
-
+    max-width: 400px
     &.remove-position
         left: 0
     li
@@ -380,7 +380,7 @@ $nav-items: 'membership', 'activity', 'account', 'support', 'perks', 'repair', '
         margin-right: 30px
 
 //////////////////////////////
-/// subsection navigation ////
+/// Subsection Navigation ////
 //////////////////////////////
 .icr-port-sub-section-nav
     +add-border(bottom)
@@ -406,7 +406,7 @@ $nav-items: 'membership', 'activity', 'account', 'support', 'perks', 'repair', '
             border-bottom: 3px solid $advantage-color
 
 //////////////////////////////
-//////// generic spec ////////
+//////// Generic Spec ////////
 //////////////////////////////
 .icr-main-generic-spec
     line-height: 25px
@@ -421,7 +421,7 @@ $nav-items: 'membership', 'activity', 'account', 'support', 'perks', 'repair', '
         padding-bottom: 20px
 
 //////////////////////////////
-//////// Main form ////////
+//////// Main Form ////////
 //////////////////////////////
 .icr-main-form
     @extend %icr-main-form
@@ -456,16 +456,38 @@ $nav-items: 'membership', 'activity', 'account', 'support', 'perks', 'repair', '
             &:hover
                 color: $disabled-state
 
-//////////////////////////////
-//////// Attention Call Out ////////
-//////////////////////////////
-.icr-port-attention-info
+/////////////////////////////////
+////// Warning Message ////////
+/////////////////////////////////
+$no-plans-break: 550px
++create-media(icr-port-no-plans, (top, compress, before, $no-plans-break))
+    no-op: 1 
+
+.icr-port-warning-message
     padding: 20px
-    @include border-radius(4px)
     background-color: $advantage-color-secondary-light
+    +border-radius(4px)
+    +get-media(icr-port-no-plans, '.svg-ico-portal-no-plans-image')
+    +media(handhelds)
+        &::before
+            display: none
+            content: ''
+    +media(except-handhelds)
+        &::before
+            background-size: 55%
+            height: 40px
+    h3
+        line-height: 36px
+        font-size: 22px
+        margin-bottom: 8px
     p
-        &:before
-            padding-right: 40px
+        font-weight: 300
+        font-size: 18px
+        line-height: 26px
+    a
+        color: $advantage-color-secondary
+        font-size: 18px
+        text-decoration: underline
 
 //////////////////////////////
 //////// Basic Table ////////
@@ -593,36 +615,3 @@ $nav-items: 'membership', 'activity', 'account', 'support', 'perks', 'repair', '
         display: block
         font-size: 25px
         margin-bototm: 7px
-
-/////////////////////////////////
-////// Warning Message ////////
-/////////////////////////////////
-$no-plans-break: 550px
-+create-media(icr-port-no-plans, (top, compress, before, $no-plans-break))
-    no-op: 1 
-
-.icr-port-warning-message
-    padding: 20px
-    background-color: $advantage-color-secondary-light
-    +border-radius(4px)
-    +get-media(icr-port-no-plans, '.svg-ico-portal-no-plans-image')
-    +media(handhelds)
-        &::before
-            display: none
-            content: ''
-    +media(except-handhelds)
-        &::before
-            background-size: 55%
-            height: 40px
-    h3
-        line-height: 36px
-        font-size: 22px
-        margin-bottom: 8px
-    p
-        font-weight: 300
-        font-size: 18px
-        line-height: 26px
-    a
-        color: $advantage-color-secondary
-        font-size: 18px
-        text-decoration: underline
