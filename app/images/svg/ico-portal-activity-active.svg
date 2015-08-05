@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="20px" height="19px" viewBox="0 0 20 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.1 (12002) - http://www.bohemiancoding.com/sketch -->
+    <title>Stroke 3605 + Stroke 3606 + Stroke 3607</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Advantage-Dashboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Account---Activity" sketch:type="MSArtboardGroup" transform="translate(-133.000000, -162.000000)" stroke-linecap="round" stroke="#FFBF00" stroke-width="1.5">
+            <g id="Stroke-3605-+-Stroke-3606-+-Stroke-3607" sketch:type="MSLayerGroup" transform="translate(131.000000, 159.400000)">
+                <path d="M2.00009091,14.4551818 L4.72736364,18.5460909 L7.90918182,14.9097273" id="Stroke-3605" stroke-linejoin="round" sketch:type="MSShapeGroup" transform="translate(4.954636, 16.500636) rotate(136.000000) translate(-4.954636, -16.500636) "></path>
+                <path d="M3.73245455,13.5460909 C3.04518182,8.01609091 7.27972727,3.727 12.0460909,3.55154545 C16.8124545,3.377 20.8188182,7.09790909 20.9933636,11.8651818 C21.1715455,16.6315455 17.4479091,20.6379091 12.6815455,20.8124545" id="Stroke-3606" stroke-linejoin="round" sketch:type="MSShapeGroup" transform="translate(12.329205, 12.179051) rotate(58.000000) translate(-12.329205, -12.179051) "></path>
+                <path d="M12.3637273,7.63081818 L12.3637273,12.6308182 L16.9091818,12.6308182" id="Stroke-3607" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

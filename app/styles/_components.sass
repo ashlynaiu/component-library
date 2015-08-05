@@ -1,0 +1,616 @@
+// Prefix all classes that are intended to be part of the host environment with `icr-main`
+// All of these classes will be hoisted up to the `classes` file in the host environment
+
+// Reserved namespace for class-pseudo-classes: `icr-active`, `icr-visible`
+
+// Prefix all module classes with `icr-{module-acronym}`, ex: `icr-sell`
+
+//////////////////////////////
+/// Universal Styles ////
+//////////////////////////////
+
+input, select, textarea, button
+    font-family: inherit
+
+a
+    text-decoration: none
+
++create-media(icr-port-bullet, (middle, standard, before))
+    no-op: 1
+
+ul.icr-port-bullet-list
+    li
+        margin-bottom: 15px
+        &::before
+            background-position: 1px 6px
+        +get-media(icr-port-bullet, '.svg-ico-bullet')
+        span
+            padding-left: 8px
+            line-height: 20px
+
+    
+
+.icr-main-link-sell
+    @extend %icr-main-link
+    color: $icr-sell-flow-color
+
+.icr-main-link-advantage
+    @extend %icr-main-link
+    color: $advantage-color
+
+.icr-dev-component-colors-container
+    overflow: hidden
+
+%icr-components-colors
+    width: 200px
+    margin: 10px
+    float: left
+    overflow: hidden
+    @include border-radius(3px)
+    span
+        display: block
+        text-align: center
+        padding: 10px 0
+        background-color: $text-color
+        &:last-child
+            font-weight: 600
+    .icr-components-color
+        display: block
+        width: 100%
+        padding: 10px 0
+
+%icr-main-button
+    background-color: $advantage-color
+    padding: 15px 35px 15px 35px
+    &:disabled
+        background-color: $disabled-state
+
+.icr-main-button--advantage
+    @extend %icr-main-button
+
+.icr-simple-button
+    background-color: transparent
+    padding: 12px 35px 12px 35px
+    font-weight: 600
+    font-size: 16px
+    color: $text-color
+
+.icr-button-secondary
+    padding: 12px 30px 12px 30px
+    border: 2px solid $advantage-color
+    +border-radius(2px)
+    +transition-property(background-color, color)
+    +transition-duration(.2s)
+    color: $advantage-color
+    background-color: #fff
+    font-size: 14px
+    &:hover
+        color: #fff
+        background: $advantage-color
+
+
+///////////////////////////////////////
+///////Generic Table Placeholder//////
+/////////////////////////////////////
+
+%table
+    width: 100%
+    thead
+        th
+            font-weight: 600
+            padding: 15px 15px
+            &:last-child
+                text-align: right
+    td
+        padding: 20px 15px
+        line-height: 25px
+        vertical-align: top
+        &:last-child
+            text-align: right
+    tr
+        +add-border(bottom)
+        &:last-child
+            border-bottom: 0
+
+///////////////////////////////////////
+///////Pointer for the user nav//////
+/////////////////////////////////////
+
+%pointer
+    &:before
+        content: ""
+        position: absolute
+        display: block
+        width: 10px
+        height: 10px
+        background-color: $accent-subtle-color
+        +add-border(top)
+        +add-border(left)
+
+//pointer for the user nav when it's needed in the top right (Make an include where you can pass in the side and left/right)
+%pointer-top-right
+    @extend %pointer
+    &:before
+        top: -6px
+        left: auto
+        right: 15px
+        margin-left: -5px
+        +rotate(45deg)
+
+%icr-port-popover
+    @extend %pointer-top-right
+    background-color: #FFFFFF
+    position: relative
+    z-index: 600
+    +add-border
+    +border-radius(3px)
+
+//////////////////////////////
+/// User Dropdown Desktop ////
+//////////////////////////////
+
+.icr-port-user-account-nav
+    @extend %icr-port-popover
+
+    &.remove-position
+        left: 0
+    li
+        color: $text-color
+        display: block
+        +add-border(bottom)
+        +transition-property(background-color, color)
+        +transition-duration(.5s)
+        &:last-child
+            border-bottom: none
+        &:hover
+            background-color: $accent-subtle-color
+            color: $advantage-color
+    a
+        display: block
+        padding: 18px 10px 13px 20px
+        color: $text-color
+
+.icr-port-user-account-credentials
+    background: $accent-subtle-color
+    padding: 12px 10px 12px 20px
+    color: $text-color
+    +add-border(bottom)
+    span
+        font-size: 20px
+        line-height: 24px
+        font-weight: 600
+
+/////////////////////////////////
+////// Portal Navigation ////////
+/////////////////////////////////
+$large-screens: 1000px
++create-media(icr-port-nav-items, (middle, compress, before, $large-screens))
+    no-op: 1 //needed since this won't be created if this is an empty field
+
+//Using a sass list and then iterating through it to create the media elements
+$nav-items: 'membership', 'activity', 'account', 'support', 'perks', 'repair', 'sell'
+
+@each $nav-item in $nav-items
+    .icr-port-nav-#{$nav-item}
+        +get-media(icr-port-nav-items, '.svg-ico-portal-#{$nav-item}', (':hover': active, '.icr-active': active))
+
+.icr-port-nav
+    li
+        cursor: pointer
+
+    // Portal Bottom Navigation
+    +media(handhelds)
+        background-color: $text-color
+        bottom: -10px
+        right: 0
+        overflow-y: scroll
+        -webkit-overflow-scrolling: touch
+        padding-bottom: 10px
+        position: fixed
+        text-transform: uppercase
+        width: 100%
+        z-index: map_get($z-index, 'navigation')
+        ul
+            white-space: nowrap
+        li
+            display: inline-block
+            padding: 30px 20px 22px 20px
+            +add-border(top)
+            &:before
+                display: none
+
+            span
+                vertical-align: center
+
+    +media(except-handhelds)
+        li
+            &:hover
+                +add-border(left, 5px, solid, $advantage-color)
+            span
+                padding-left: 8px
+    // Portal Side Navigation (Tablet & Small Laptops)
+    +media(small-screens)
+        overflow: hidden
+        font-size: 12px
+        text-align: center
+        text-transform: uppercase
+        width: 100px
+        li
+            padding: 10px 0
+            +add-border(left, 5px, solid, $text-color)
+            width: 100%
+            &::before
+                margin-bottom: 5px
+        span
+            &::before
+                clear: both
+                content: ""
+                display: table
+
+    // Portal Side Navigation (Laptops)
+    +media(above-small-screens)
+        overflow: hidden
+        width: 240px
+        li
+            padding: 15px 20px
+            text-align: left
+            width: 100%
+            +add-border(left, 1px, solid, #FFFFFF)
+            +transition-property(border, $advantage-color)
+            +transition-duration(.5s)
+            &:nth-child(n+6)
+                border: none
+
+    li.icr-active
+        color: $text-color
+        font-weight: 600
+        +media(large-screens)
+            +add-border(left, 5px, solid, $advantage-color)
+            &:hover
+                border-color: $advantage-color
+        +media(small-screens, medium-screens)
+            background-color: #FFFFFF
+            +add-border(left, 5px, solid, $advantage-color)
+        +media(handhelds)
+            +add-border(bottom, 5px, solid, $advantage-color)
+    
+    li.icr-port-link-start-repair
+        +media(above-small-screens)
+            margin-top: 25px
+            padding-top: 25px
+            +add-border(top, 2px, solid, $text-color)
+        a
+            color: $text-color
+
+        +media(small-screens)
+            margin-top: 20px
+            .icr-main-button--portal-start-repair
+                padding: 1px 0
+                background-color: $advantage-color
+                display: block
+                color: #fff
+                padding: 15px 0
+    
+/////////////////////////////////
+//////// Table List Item ////////
+/////////////////////////////////
++create-media(icr-port-iphone-icon, (middle, standard, before))
+    no-op: 1
+
++create-media(icr-options, (top, standard, before))
+    no-op: 1
+
+.icr-port-table-item-list
+    @extend %table
+    margin-bottom: 30px
+    thead
+        tr
+            background-color: $text-color
+        th
+            padding: 20px 15px
+            span
+                font-size: 20px
+                font-weight: 300
+    small
+        font-size: 14px
+
+    +media(handhelds)
+        tr, td, th, table
+            display: block
+        th
+            position: absolute
+            top: -9999px
+            left: -9999px
+        tr
+            &:nth-child(odd)
+                background-color: $text-color
+            &:last-child
+                +add-border(bottom)
+        td
+            padding: 10px
+            &:before
+                padding-right: 30px
+                font-weight: 400
+            &:first-child
+                padding-top: 20px
+            &:last-child
+                padding-bottom: 20px
+            &:last-of-type
+                text-align: left
+
+    td div.media-content
+        +get-media(icr-port-iphone-icon, '.svg-ico-portal-iphone')
+        &::before
+            background-position: top center
+        p
+            padding-left: 20px
+
+    .icr-port-options
+        position: relative
+        +get-media(icr-options, '.svg-ico-settings')
+        
+
+    .icr-port-table-subheader
+        small
+            font-weight: 600
+            color: $text-color-accent
+        +media(handhelds)
+            display: none
+
+
+//////////////////////////////
+/// subsection navigation ////
+//////////////////////////////
+.icr-port-sub-section-nav
+    +add-border(bottom)
+    li
+        cursor: pointer
+        height: 30px
+        display: inline-block
+        padding: 0 10px 0 10px
+        margin: 0 10px 0 0
+        +media(except-handhelds)
+            font-size: 18px
+        +media(handhelds)
+            font-size: 15px
+        &.icr-active
+            font-weight: 600
+            +add-border(bottom, 3px, solid, $advantage-color)
+        a
+            color: $text-color
+        &:hover
+            color: $advantage-color
+
+
+//////////////////////////////
+//////// generic spec ////////
+//////////////////////////////
+.icr-main-generic-spec
+    line-height: 25px
+    th
+        font-weight: 300
+        text-align: left
+        padding-right: 70px
+        vertical-align: top
+    td
+        font-weight: 400
+        text-align: right
+        padding-bottom: 20px
+
+//////////////////////////////
+//////// Main form ////////
+//////////////////////////////
+.icr-main-form
+    .icr-main-button
+        float: left
+    
+    input
+        font-weight: 300
+        .extended-input
+            height: 200px
+        &:required
+            box-shadow: none
+
+//////////////////////////////
+//////// Top Switch ////////
+//////////////////////////////
+.icr-port-top-switch
+    margin-bottom: 10px
+    +media(above-small-screens)
+        +display-flex
+        justify-content: space-between
+    +media(handhelds)
+        padding-bottom: 30px
+    .icr-port-link-padding
+        padding-right: 30px
+    .icr-port-active-switch
+        a
+            &:hover
+                color: $disabled-state
+
+//////////////////////////////
+//////// Attention Call Out ////////
+//////////////////////////////
+
+// +create-media(icr-port-warning-item)
+//  no-op: 1
+// +create-media(icr-port-info-item)
+//  no-op: 1
+
+// %icr-port-attention
+//  +callout-container(20px,20px,20px,20px)
+//  @include border-radius (4px)
+//  margin-bottom: 30px
+//  p
+//      &:before
+//          padding-right: 40px
+
+// .icr-port-attention-warning
+//  @extend %icr-port-attention
+//  p
+//      +get-media(icr-port-warning-item, '.svg-ico-portal-warning')
+
+// .icr-port-attention-info
+//  @extend %icr-port-attention
+//  p
+//      +get-media(icr-port-info-item, '.svg-ico-portal-info')
+
+//////////////////////////////
+//////// Basic Table ////////
+//////////////////////////////
+.icr-port-basic-table
+    td
+        vertical-align: top
+    td:first-of-type
+        padding: 0 25px 15px 0
+        color: $text-color-accent
+
+//////////////////////////////
+//////// Breadcrumbs ////////
+//////////////////////////////
++create-media(icr-port-bread-crumb-arrow, (middle, standard, after))
+    no-op: 1
+
+.icr-port-breadcrumbs
+    padding-bottom: 30px
+    &:after
+        content: ""
+        display: table
+        clear: both
+    a
+        +media(except-handhelds)
+            font-size: 24px
+        +media(handhelds)
+            font-size: 20px
+        color: $advantage-color
+        +get-media(icr-port-bread-crumb-arrow, '.svg-ico-portal-right-arrow')
+        &:after
+            padding-left: 20px
+
+    li
+        display: inline
+        float: left
+        margin-right: 10px
+    .icr-active
+        a
+            color: $text-color
+            &:after
+                content: none
+                background-image: none
+
+//////////////////////////////
+//////// Small Menu ////////
+//////////////////////////////
+.icr-port-small-dropdown-options
+    width: 200px
+    @include border-radius(3px)
+    +add-border()
+
+    ul li
+        padding: 15px 20px 15px 20px
+        text-align: left
+        +add-border(bottom)
+        &:last-child
+            border: none
+        a.icr-main-link
+            color: $text-color
+        &:hover
+            color: $advantage-color
+
+/////////////////////////////////
+////// Drop Zone ////////
+/////////////////////////////////
+
++create-media(icr-port-upload-drop-zone, (middle, standard, before))
+    display: block
+    padding: 10px
+    .media-graphic
+        vertical-align: top
+
+.icr-port-upload
+    max-width: 420px
+    h4
+        margin-bottom: 10px
+    &-drop-zone
+        +get-media(icr-port-upload-drop-zone)
+        border: 2px dashed gray
+        padding: 10px
+        cursor: pointer
+    p
+        text-align: center
+    span
+        color: $brand-color
+    img
+        width: 110px
+        margin-right: 10px
+    progress
+        width: 100%
+        margin-bottom: 10px
+        &[value]::-webkit-progress-bar
+            background-color: #fff
+        &[value]::-webkit-progress-value 
+            background-color: $advantage-color
+
+    &-drop-zone
+        position: relative
+        progress
+            display: none
+            position: absolute
+            top: 0
+            left: 0
+            height: 100%
+    &-status
+        display: table
+        height: 100%
+        width: 100%
+        text-align: center
+        &-cover
+            position: absolute
+            width: 100%
+            height: 100%
+            top: 0
+            left: 0
+            background: #B9DDF0 // clearly change
+        &-content
+            display: table-cell
+            vertical-align: middle
+            span
+                color: white
+    &-percent
+        color: white
+        display: block
+        font-size: 25px
+        margin-bototm: 7px
+
+/////////////////////////////////
+////// Warning Message ////////
+/////////////////////////////////
+$no-plans-break: 550px
++create-media(icr-port-no-plans, (top, compress, before, $no-plans-break))
+    no-op: 1 
+
+.icr-port-warning-message
+    padding: 20px
+    background-color: $advantage-color-secondary-light
+    +border-radius(4px)
+    +get-media(icr-port-no-plans, '.svg-ico-portal-no-plans-image')
+    +media(handhelds)
+        &::before
+            display: none
+            content: ''
+    +media(except-handhelds)
+        &::before
+            background-size: 55%
+            height: 40px
+    h3
+        line-height: 36px
+        font-size: 22px
+        margin-bottom: 8px
+    p
+        font-weight: 300
+        font-size: 18px
+        line-height: 26px
+    a
+        color: $advantage-color-secondary
+        font-size: 18px
+        text-decoration: underline

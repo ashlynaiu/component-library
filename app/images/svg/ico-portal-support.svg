@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="21px" height="21px" viewBox="0 0 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.1 (12002) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-question</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Advantage-Dashboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Artboard-28" sketch:type="MSArtboardGroup" transform="translate(-171.000000, -227.000000)">
+            <g id="icon-question" sketch:type="MSLayerGroup" transform="translate(172.000000, 228.363164)">
+                <path d="M9.5,13.2190435 C9.04317391,13.2190435 8.67391304,13.5891304 8.67391304,14.0451304 C8.67391304,14.5019565 9.04317391,14.8712174 9.5,14.8712174 C9.956,14.8712174 10.326087,14.5019565 10.326087,14.0451304 C10.326087,13.5891304 9.956,13.2190435 9.5,13.2190435" id="Fill-4044" fill="#7F90A6" sketch:type="MSShapeGroup"></path>
+                <path d="M18.5869565,9.08852609 C18.5869565,14.1070043 14.5184783,18.1754826 9.5,18.1754826 C4.48152174,18.1754826 0.413043478,14.1070043 0.413043478,9.08852609 C0.413043478,4.07004783 4.48152174,0.00156956522 9.5,0.00156956522 C14.5184783,0.00156956522 18.5869565,4.07004783 18.5869565,9.08852609 L18.5869565,9.08852609 Z" id="Stroke-4045" stroke="#7F90A6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" sketch:type="MSShapeGroup"></path>
+                <path d="M7.02173913,7.0233087 C7.02173913,5.6553087 8.13117391,4.54504783 9.5,4.54504783 C10.868,4.54504783 11.9782609,5.6553087 11.9782609,7.0233087 C11.9782609,8.39213478 10.868,9.50156957 9.5,9.50156957 L9.5,11.9798304" id="Stroke-4046" stroke="#7F90A6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,312 @@
+%svg {
+	background-repeat: no-repeat;
+}
+
+.svg-ico-ccard-amex { 
+	background-position: 0 0;
+	@extend %svg;
+	background-image: url(icons/icons.svg);
+}
+
+.svg-ico-ccard-amex-dims {
+	width: 27px;
+	height: 18.7px;
+}
+
+.svg-ico-ccard-back-of-card { 
+	background-position: 0 -19px;
+	@extend %svg;
+	background-image: url(icons/icons.svg);
+}
+
+.svg-ico-ccard-back-of-card-dims {
+	width: 27px;
+	height: 18.7px;
+}
+
+.svg-ico-ccard-default-front { 
+	background-position: 0 -38px;
+	@extend %svg;
+	background-image: url(icons/icons.svg);
+}
+
+.svg-ico-ccard-default-front-dims {
+	width: 27px;
+	height: 18.7px;
+}
+
+.svg-ico-ccard-discover { 
+	background-position: 0 -57px;
+	@extend %svg;
+	background-image: url(icons/icons.svg);
+}
+
+.svg-ico-ccard-discover-dims {
+	width: 27px;
+	height: 18.7px;
+}
+
+.svg-ico-ccard-mastercard { 
+	background-position: 0 -76px;
+	@extend %svg;
+	background-image: url(icons/icons.svg);
+}
+
+.svg-ico-ccard-mastercard-dims {
+	width: 27px;
+	height: 18.7px;
+}
+
+.svg-ico-ccard-visa { 
+	background-position: 0 -95px;
+	@extend %svg;
+	background-image: url(icons/icons.svg);
+}
+
+.svg-ico-ccard-visa-dims {
+	width: 27px;
+	height: 18.7px;
+}
+
+.svg-ico-close { 
+	background-position: 0 -114px;
+	@extend %svg;
+	background-image: url(icons/icons.svg);
+}
+
+.svg-ico-close-dims {
+	width: 10px;
+	height: 11px;
+}
+
+.svg-ico-open { 
+	background-position: 0 -125px;
+	@extend %svg;
+	background-image: url(icons/icons.svg);
+}
+
+.svg-ico-open-dims {
+	width: 10px;
+	height: 11px;
+}
+
+.svg-ico-pending { 
+	background-position: 0 -136px;
+	@extend %svg;
+	background-image: url(icons/icons.svg);
+}
+
+.svg-ico-pending-dims {
+	width: 10px;
+	height: 11px;
+}
+
+.svg-ico-portal-account { 
+	background-position: 0 -147px;
+	@extend %svg;
+	background-image: url(icons/icons.svg);
+}
+
+.svg-ico-portal-account-dims {
+	width: 21px;
+	height: 21px;
+}
+
+.svg-ico-portal-account-active { 
+	background-position: 0 -168px;
+	@extend %svg;
+	background-image: url(icons/icons.svg);
+}
+
+.svg-ico-portal-account-active-dims {
+	width: 21px;
+	height: 21px;
+}
+
+.svg-ico-portal-delete { 
+	background-position: 0 -189px;
+	@extend %svg;
+	background-image: url(icons/icons.svg);
+}
+
+.svg-ico-portal-delete-dims {
+	width: 16px;
+	height: 15px;
+}
+
+.svg-ico-portal-help-call { 
+	background-position: 0 -204px;
+	@extend %svg;
+	background-image: url(icons/icons.svg);
+}
+
+.svg-ico-portal-help-call-dims {
+	width: 33px;
+	height: 33px;
+}
+
+.svg-ico-portal-help-chat { 
+	background-position: 0 -237px;
+	@extend %svg;
+	background-image: url(icons/icons.svg);
+}
+
+.svg-ico-portal-help-chat-dims {
+	width: 32px;
+	height: 30px;
+}
+
+.svg-ico-portal-help-email { 
+	background-position: 0 -267px;
+	@extend %svg;
+	background-image: url(icons/icons.svg);
+}
+
+.svg-ico-portal-help-email-dims {
+	width: 32px;
+	height: 33px;
+}
+
+.svg-ico-portal-iphone { 
+	background-position: 0 -300px;
+	@extend %svg;
+	background-image: url(icons/icons.svg);
+}
+
+.svg-ico-portal-iphone-dims {
+	width: 22px;
+	height: 34px;
+}
+
+.svg-ico-portal-membership { 
+	background-position: 0 -334px;
+	@extend %svg;
+	background-image: url(icons/icons.svg);
+}
+
+.svg-ico-portal-membership-dims {
+	width: 21px;
+	height: 21px;
+}
+
+.svg-ico-portal-membership-active { 
+	background-position: 0 -355px;
+	@extend %svg;
+	background-image: url(icons/icons.svg);
+}
+
+.svg-ico-portal-membership-active-dims {
+	width: 21px;
+	height: 21px;
+}
+
+.svg-ico-portal-perks { 
+	background-position: 0 -376px;
+	@extend %svg;
+	background-image: url(icons/icons.svg);
+}
+
+.svg-ico-portal-perks-dims {
+	width: 17px;
+	height: 26px;
+}
+
+.svg-ico-portal-perks-active { 
+	background-position: 0 -402px;
+	@extend %svg;
+	background-image: url(icons/icons.svg);
+}
+
+.svg-ico-portal-perks-active-dims {
+	width: 17px;
+	height: 26px;
+}
+
+.svg-ico-portal-repair { 
+	background-position: 0 -428px;
+	@extend %svg;
+	background-image: url(icons/icons.svg);
+}
+
+.svg-ico-portal-repair-dims {
+	width: 25px;
+	height: 25px;
+}
+
+.svg-ico-portal-repair-active { 
+	background-position: 0 -453px;
+	@extend %svg;
+	background-image: url(icons/icons.svg);
+}
+
+.svg-ico-portal-repair-active-dims {
+	width: 25px;
+	height: 25px;
+}
+
+.svg-ico-portal-right-arrow { 
+	background-position: 0 -478px;
+	@extend %svg;
+	background-image: url(icons/icons.svg);
+}
+
+.svg-ico-portal-right-arrow-dims {
+	width: 11px;
+	height: 17px;
+}
+
+.svg-ico-portal-sell { 
+	background-position: 0 -495px;
+	@extend %svg;
+	background-image: url(icons/icons.svg);
+}
+
+.svg-ico-portal-sell-dims {
+	width: 25px;
+	height: 25px;
+}
+
+.svg-ico-portal-sell-active { 
+	background-position: 0 -520px;
+	@extend %svg;
+	background-image: url(icons/icons.svg);
+}
+
+.svg-ico-portal-sell-active-dims {
+	width: 25px;
+	height: 25px;
+}
+
+.svg-ico-portal-support { 
+	background-position: 0 -545px;
+	@extend %svg;
+	background-image: url(icons/icons.svg);
+}
+
+.svg-ico-portal-support-dims {
+	width: 23px;
+	height: 23px;
+}
+
+.svg-ico-portal-support-active { 
+	background-position: 0 -568px;
+	@extend %svg;
+	background-image: url(icons/icons.svg);
+}
+
+.svg-ico-portal-support-active-dims {
+	width: 23px;
+	height: 23px;
+}
+
+.svg-ico-settings { 
+	background-position: 0 -591px;
+	@extend %svg;
+	background-image: url(icons/icons.svg);
+}
+
+.svg-ico-settings-dims {
+	width: 24px;
+	height: 25px;
+}
+

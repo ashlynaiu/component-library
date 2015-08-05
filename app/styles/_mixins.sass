@@ -1,0 +1,12 @@
+$border-default-color: #F0F4F9
+$border-default: (border-position-all: 'all', border-default-size: 1px, border-default-pattern: solid, border-default-color: map-get($color-palette, lightergray))
+=add-border($border-position: map-get($border-default, border-position-all), $border-size: map-get($border-default, border-default-size), $border-pattern: map-get($border-default, border-default-pattern), $border-color: map-get($border-default, border-default-color))
+  @if $border-position == 'all'
+    border: $border-size $border-pattern $border-color
+  @else
+    border-#{$border-position}: $border-size $border-pattern $border-default-color
+
+$z-index: (component: 0, navigation: 100, overlay: 200, modal: 300, status: 400)
+
+=z-index($type)
+  z-index: map-get($z-index, $type)

@@ -54,12 +54,18 @@
 .port-main-right-column--thirds
   @extend %port-main-column--thirds
 
+///Mobile Vs Desktop////
+.port-main-content-desktop
+  +media(except-handhelds)
+    display: block
+  +media(handhelds)
+    display: none
 
-a
-  text-decoration: none
-  color: $main-link-color
-  &:hover
-    text-decoration: underline
+.port-main-content-mobile
+  +media(except-handhelds)
+    display: none
+  +media(handhelds)
+    display: block
 
 p
   font-weight: 300
@@ -85,3 +91,25 @@ p
 .port-main-hide-image-moible
   +media(handhelds)
     display: none
+
+.icr-dev-component
+  margin: 30px
+  margin-bottom: 50px
+  padding: 20px
+  border: 1px solid #ddd
+  overflow: hidden
+
+///////////////////////////////////////
+///////Universal Component Styles/////
+/////////////////////////////////////
+%-icr-main-link
+  background: none
+  text-decoration: none
+  cursor: pointer
+
+%icr-main-link
+  @extend %-icr-main-link
+  color: $brand-color
+  font-size: 16px
+  &:hover
+    text-decoration: underline
