@@ -303,6 +303,8 @@ $nav-items: 'membership', 'activity', 'account', 'support', 'perks', 'repair', '
                 font-weight: 300
     small
         font-size: 14px
+    tr
+        background-color: #fff
 
     +media(handhelds)
         tr, td, th, table
@@ -312,8 +314,7 @@ $nav-items: 'membership', 'activity', 'account', 'support', 'perks', 'repair', '
             top: -9999px
             left: -9999px
         tr
-            &:nth-child(odd)
-                background-color: $accent-subtle-color
+            background-color: #fff
             &:last-child
                 +add-border(bottom)
         td
