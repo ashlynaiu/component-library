@@ -29,6 +29,9 @@ ul.icr-port-bullet-list
             line-height: 20px
 
     
+.icr-main-link
+    @extend %icr-main-link
+    color: $brand-color
 
 .icr-main-link-sell
     @extend %icr-main-link
@@ -38,32 +41,17 @@ ul.icr-port-bullet-list
     @extend %icr-main-link
     color: $advantage-color
 
-.icr-dev-component-colors-container
-    overflow: hidden
-
-%icr-components-colors
-    width: 200px
-    margin: 10px
-    float: left
-    overflow: hidden
-    @include border-radius(3px)
-    span
-        display: block
-        text-align: center
-        padding: 10px 0
-        background-color: $text-color
-        &:last-child
-            font-weight: 600
-    .icr-components-color
-        display: block
-        width: 100%
-        padding: 10px 0
-
 %icr-main-button
     background-color: $advantage-color
-    padding: 15px 35px 15px 35px
     &:disabled
         background-color: $disabled-state
+
+%icr-main-button-aux
+    @extend %-icr-main-button
+    background: $text-color-accent
+
+.icr-main-button-aux
+    @extend %icr-main-button-aux
 
 .icr-main-button--advantage
     @extend %icr-main-button
@@ -183,6 +171,7 @@ ul.icr-port-bullet-list
 /////////////////////////////////
 ////// Portal Navigation ////////
 /////////////////////////////////
+$icr-active-border: 5px solid $advantage-color
 $large-screens: 1000px
 +create-media(icr-port-nav-items, (middle, compress, before, $large-screens))
     no-op: 1 //needed since this won't be created if this is an empty field
@@ -225,9 +214,10 @@ $nav-items: 'membership', 'activity', 'account', 'support', 'perks', 'repair', '
     +media(except-handhelds)
         li
             &:hover
-                +add-border(left, 5px, solid, $advantage-color)
+                border-left: $icr-active-border
             span
                 padding-left: 8px
+
     // Portal Side Navigation (Tablet & Small Laptops)
     +media(small-screens)
         overflow: hidden
@@ -255,7 +245,7 @@ $nav-items: 'membership', 'activity', 'account', 'support', 'perks', 'repair', '
             padding: 15px 20px
             text-align: left
             width: 100%
-            +add-border(left, 1px, solid, #FFFFFF)
+            +add-border(left, 0px, solid, #FFFFFF)
             +transition-property(border, $advantage-color)
             +transition-duration(.5s)
             &:nth-child(n+6)
@@ -265,14 +255,14 @@ $nav-items: 'membership', 'activity', 'account', 'support', 'perks', 'repair', '
         color: $text-color
         font-weight: 600
         +media(large-screens)
-            +add-border(left, 5px, solid, $advantage-color)
+            border-left: $icr-active-border
             &:hover
                 border-color: $advantage-color
         +media(small-screens, medium-screens)
             background-color: #FFFFFF
-            +add-border(left, 5px, solid, $advantage-color)
+            border-left: $icr-active-border
         +media(handhelds)
-            +add-border(bottom, 5px, solid, $advantage-color)
+            border-bottom: $icr-active-border
     
     li.icr-port-link-start-repair
         +media(above-small-screens)
@@ -305,7 +295,7 @@ $nav-items: 'membership', 'activity', 'account', 'support', 'perks', 'repair', '
     margin-bottom: 30px
     thead
         tr
-            background-color: $text-color
+            background-color: $accent-subtle-color
         th
             padding: 20px 15px
             span
@@ -323,7 +313,7 @@ $nav-items: 'membership', 'activity', 'account', 'support', 'perks', 'repair', '
             left: -9999px
         tr
             &:nth-child(odd)
-                background-color: $text-color
+                background-color: $accent-subtle-color
             &:last-child
                 +add-border(bottom)
         td
@@ -342,13 +332,16 @@ $nav-items: 'membership', 'activity', 'account', 'support', 'perks', 'repair', '
         +get-media(icr-port-iphone-icon, '.svg-ico-portal-iphone')
         &::before
             background-position: top center
+            height: 10px
         p
             padding-left: 20px
-
-    .icr-port-options
-        position: relative
-        +get-media(icr-options, '.svg-ico-settings')
         
+    .svg-ico-active
+        background-position: center left
+        padding-left: 15px
+
+    .icr-main-link
+        font-size: 14px
 
     .icr-port-table-subheader
         small
@@ -357,6 +350,34 @@ $nav-items: 'membership', 'activity', 'account', 'support', 'perks', 'repair', '
         +media(handhelds)
             display: none
 
+/////////////////////////////////
+////// User Unit ////////
+/////////////////////////////////
+
+.icr-main-user-unit
+    +display-flex
+    img
+        height: 28px
+        cursor: pointer
+        margin: 5px 8px 0 0
+
+.icr-main-link-dropdown
+    padding-top: 5px
+    position: relative
+
+    &:after
+        @include background-image
+        background: url(/images/icons/down-arrow.svg) no-repeat center right
+        top: 17px
+        right: -22px
+        width: 10px
+        height: 8px
+
+    &:hover
+        color: $advantage-color
+
+    +media(except-handhelds)    
+        margin-right: 30px
 
 //////////////////////////////
 /// subsection navigation ////
@@ -369,18 +390,20 @@ $nav-items: 'membership', 'activity', 'account', 'support', 'perks', 'repair', '
         display: inline-block
         padding: 0 10px 0 10px
         margin: 0 10px 0 0
+        +add-border(bottom, 0px, solid, #FFFFFF)
+        +transition-property(border, $advantage-color)
+        +transition-duration(.5s)
         +media(except-handhelds)
             font-size: 18px
         +media(handhelds)
             font-size: 15px
         &.icr-active
             font-weight: 600
-            +add-border(bottom, 3px, solid, $advantage-color)
+            border-bottom: 3px solid $advantage-color
         a
             color: $text-color
         &:hover
-            color: $advantage-color
-
+            border-bottom: 3px solid $advantage-color
 
 //////////////////////////////
 //////// generic spec ////////
@@ -401,15 +424,19 @@ $nav-items: 'membership', 'activity', 'account', 'support', 'perks', 'repair', '
 //////// Main form ////////
 //////////////////////////////
 .icr-main-form
+    @extend %icr-main-form
     .icr-main-button
         float: left
-    
+
     input
-        font-weight: 300
+        @extend %icr-main-input
+        font-family: ProximaNova-normal
         .extended-input
             height: 200px
         &:required
             box-shadow: none
+        &:focus
+            border-color: $advantage-color !important
 
 //////////////////////////////
 //////// Top Switch ////////
@@ -425,35 +452,20 @@ $nav-items: 'membership', 'activity', 'account', 'support', 'perks', 'repair', '
         padding-right: 30px
     .icr-port-active-switch
         a
+            color: $advantage-color
             &:hover
                 color: $disabled-state
 
 //////////////////////////////
 //////// Attention Call Out ////////
 //////////////////////////////
-
-// +create-media(icr-port-warning-item)
-//  no-op: 1
-// +create-media(icr-port-info-item)
-//  no-op: 1
-
-// %icr-port-attention
-//  +callout-container(20px,20px,20px,20px)
-//  @include border-radius (4px)
-//  margin-bottom: 30px
-//  p
-//      &:before
-//          padding-right: 40px
-
-// .icr-port-attention-warning
-//  @extend %icr-port-attention
-//  p
-//      +get-media(icr-port-warning-item, '.svg-ico-portal-warning')
-
-// .icr-port-attention-info
-//  @extend %icr-port-attention
-//  p
-//      +get-media(icr-port-info-item, '.svg-ico-portal-info')
+.icr-port-attention-info
+    padding: 20px
+    @include border-radius(4px)
+    background-color: $advantage-color-secondary-light
+    p
+        &:before
+            padding-right: 40px
 
 //////////////////////////////
 //////// Basic Table ////////

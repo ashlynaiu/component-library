@@ -7,13 +7,13 @@
         <div class="port-main-content-desktop">
             <nav class="icr-port-nav">
                 <ul>
-                    <li class="icr-port-nav-membership"><span class="media-content">Advantage Plans</span></li>
-                    <li class="icr-port-nav-activity"><span class="media-content">Activity</span></li>
-                    <li class="icr-port-nav-perks"><span class="media-content">Perks</span></li>
-                    <li class="icr-port-nav-account"><span class="media-content">Account</span></li>
-                    <li class="icr-port-nav-support"><span class="media-content">Support</span></li>
-                    <li class="icr-port-link-start-repair icr-port-nav-repair"><span class="media-content"><a href="{{icrPageInfo.origin}}/claim">Start a repair</a></span></li>
-                    <li class="icr-port-nav-sell" ui-sref="plan.basic.devices({ policyId: {{plansData[0].id}} })"><span class="media-content">Start a trade-in</span></li>
+                    <li class="icr-port-nav-membership" ui-sref-active="icr-active" ui-sref="home"><span class="media-content">Advantage Plans</span></li>
+                    <li class="icr-port-nav-activity" ui-sref-active="icr-active" ui-sref=""><span class="media-content">Activity</span></li>
+                    <li class="icr-port-nav-perks" ui-sref-active="icr-active" ui-sref=""><span class="media-content">Perks</span></li>
+                    <li class="icr-port-nav-account" ui-sref-active="icr-active" ui-sref=""><span class="media-content">Account</span></li>
+                    <li class="icr-port-nav-support" ui-sref-active="icr-active" ui-sref=""><span class="media-content">Support</span></li>
+                    <li class="icr-port-link-start-repair icr-port-nav-repair" ui-sref-active="icr-active"><span class="media-content"><span class="media-content">Start a repair</span></li>
+                    <li class="icr-port-nav-sell"><span class="media-content">Start a trade-in</span></li>
                 </ul>
             </nav>
         </div>
@@ -58,36 +58,48 @@
             <table class="icr-port-table-item-list">
                 <thead>
                     <tr>
-                        <th><span>Date</span></th>
-                        <th><span>Invoice #</span></th>
-                        <th><span>Description</span></th>
-                        <th><span>Amount</span></th>
-                        <th></th>
+                        <th><span>Plan #1</span>
+                        &emsp;&emsp;&bull;&emsp;&emsp;Active&emsp;&emsp;&bull;&emsp;&emsp;Single Plan
+                        <small ng-show="plan.openCount > 0">1 of 1 available)</small></th>
+                        <th>&nbsp;</th>
+                        <th><a ui-sref="" class="icr-main-link-advantage">View Plan Details</a></th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>DATE</td>
-                        <td><span>45GI83</span></td>
-                        <td>(1) Protection Plan</td>
-                        <td>$7.00</td>
-                        <td> <a href="#">View</a></td>
-                    </tr>
-                    <tr>
-                        <td>DATE</td>
-                        <td><span>45GI83</span></td>
-                        <td>(1) Protection Plan</td>
-                        <td>$7.00</td>
-                        <td> <a href="#">View</a></td>
-                    </tr>
-                    <tr>
-                        <td>DATE</td>
-                        <td><span>45GI83</span></td>
-                        <td>(1) Protection Plan</td>
-                        <td>$7.00</td>
-                        <td> <a href="#">View</a></td>
-                    </tr>
-                </tbody>
+                <tr class="icr-port-table-subheader">
+                    <td><small>Device</small></td>
+                    <td><small>Status</small></td>
+                    <td><small>Actions</small></td>
+                </tr>
+                <tr>
+                    <td>
+                      <div class="media-content">
+                        <p><span><strong>Ashlyn's iPhone</strong><br />
+                        (iPhone 5s - White)</span>
+                      </div>
+                    </td>
+                    <td>
+                      <span class="svg-ico-active">Active
+                      </span>
+                    </td>
+                    <td>
+                        <a class="icr-main-link">Repair</a> | <a class="icr-main-link">Trade-In</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                      <div class="media-content">
+                        <p><span><strong>Phil's iPhone</strong><br />
+                        (iPhone 5s - White)</span>
+                      </div>
+                    </td>
+                    <td>
+                      <span class="svg-ico-active">Active
+                      </span>
+                    </td>
+                    <td>
+                        <a class="icr-main-link">Repair</a> | <a class="icr-main-link">Trade-In</a>
+                    </td>
+                </tr>
             </table>
         </div>
     </div>
@@ -95,8 +107,8 @@
     <h3>User Unit</h3>
     <div class="icr-dev-component">
         <div class="icr-main-user-unit">
+            <img src="/images/photos/account-image-placeholder.png" />
             <p class="icr-main-link-dropdown">Phil Keys</p>
-            <img src="/public/modules/portal/app/images/photos/account-image-placeholder.png" />
         </div>
     </div>
 
@@ -123,14 +135,14 @@
     <h3>Link Selection</h3>
     <div class="icr-dev-component">
         <div class="icr-main-link-selection">
-            <p>Begin <a href="#" class="icr-main-link">Repair</a> / <a href="#" class="icr-main-link-accent">Trade-In</a></p>
+            <p>Begin <a href="#" class="icr-main-link">Repair</a> / <a href="#" class="icr-main-link-sell">Trade-In</a></p>
         </div>
     </div>
 
     <h3>Description Link</h3>
     <div class="icr-dev-component">
         <div class="icr-main-action-link">
-            <p>Add a <a class="icr-main-link">Plan</a></p>
+            <p>Add a <a class="icr-main-link-advantage">Plan</a></p>
         </div>
     </div>
 
@@ -188,16 +200,10 @@
                 </label>
             </fieldset>
             <div class="icr-main-button-group">
-                <button class="icr-main-button">Save</button>
+                <button class="icr-main-button--advantage">Save</button>
                 <button class="icr-main-button-aux">Cancel</button>
             </div>
         </form>
-    </div>
-
-    <h3>Main Link</h3>
-    <div class="icr-dev-component">
-        <a href="#" class="icr-main-link">View</a>
-        <a href="#" class="icr-main-link-accent">View</a>
     </div>
 
     <h3>Small Switch</h3>
@@ -208,17 +214,11 @@
         </div>
     </div>
 
-    <h3>Warning Call Out</h3>
-    <div class="icr-dev-component">
-        <div class="icr-port-attention-warning">
-            <p class="icr-port-warning-item">Please make sure that the information below is correct as your local iTech will use this information to contact you about your repair.</p>
-        </div>
-    </div>
-
     <h3>Attention Call Out</h3>
     <div class="icr-dev-component">
-        <div class="icr-port-attention-info">
-            <p class="icr-port-info-item">Please make sure that the information below is correct as your local iTech will use this information to contact you about your repair.</p>
+        <div class="icr-port-warning-message">
+            <span><h3>Looks like you don't have an Advantage Plan</h3> 
+            <p>Create a new plan to get your device protected and receive discounts for your favorite brands.</p>
         </div>
     </div>
 

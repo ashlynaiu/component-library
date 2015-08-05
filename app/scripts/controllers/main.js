@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name ashlynTemplate.controller:MainCtrl
+ * @name componentLibrary.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the ashlynTemplate
+ * Controller of the componentLibrary
  */
-angular.module('ashlynTemplate')
-  .controller('AboutCtrl', function ($scope) {
+angular.module('componentLibrary')
+  .controller('MainCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name ashlynTemplate
+ * @name componentLibrary
  * @description
- * # ashlynTemplate
+ * # componentLibrary
  *
  * Main module of the application.
  */
 angular
-  .module('ashlynTemplate', [
+  .module('componentLibrary', [
     'ngAnimate',
     'ngSanitize',
     'ngTouch',
@@ -35,6 +35,11 @@ angular
         parent: 'frame',
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
+      })
+      .state('router', {
+        url: '',
+        parent: 'frame',
+        templateUrl: 'views/ui-router.html',
       });
   }).run(function($rootScope){
   $rootScope.$on('$stateChangeSuccess', function() {
