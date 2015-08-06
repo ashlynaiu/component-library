@@ -1,3 +1,3 @@
-# Ashlyn's-Template
+#Component Library
 
-This is a basic angular template I like to use. It is a custom version of Yeoman with a focus on Heroku deployment with node.js.
+Small component library from recent work. Code is hosted on heroku at https://library-components.herokuapp.com/
