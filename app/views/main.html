@@ -8,11 +8,11 @@
             <nav class="icr-port-nav">
                 <ul>
                     <li class="icr-port-nav-membership" ui-sref-active="icr-active" ui-sref="home"><span class="media-content">Advantage Plans</span></li>
-                    <li class="icr-port-nav-activity" ui-sref-active="icr-active" ui-sref=""><span class="media-content">Activity</span></li>
-                    <li class="icr-port-nav-perks" ui-sref-active="icr-active" ui-sref=""><span class="media-content">Perks</span></li>
-                    <li class="icr-port-nav-account" ui-sref-active="icr-active" ui-sref=""><span class="media-content">Account</span></li>
-                    <li class="icr-port-nav-support" ui-sref-active="icr-active" ui-sref=""><span class="media-content">Support</span></li>
-                    <li class="icr-port-link-start-repair icr-port-nav-repair" ui-sref-active="icr-active"><span class="media-content"><span class="media-content">Start a repair</span></li>
+                    <li class="icr-port-nav-activity" ui-sref-active="icr-active" ui-sref="router"><span class="media-content">Activity</span></li>
+                    <li class="icr-port-nav-perks" ui-sref-active="icr-active" ui-sref="router"><span class="media-content">Perks</span></li>
+                    <li class="icr-port-nav-account" ui-sref-active="icr-active" ui-sref="router"><span class="media-content">Account</span></li>
+                    <li class="icr-port-nav-support" ui-sref-active="icr-active" ui-sref="router"><span class="media-content">Support</span></li>
+                    <li class="icr-port-link-start-repair icr-port-nav-repair"><span class="media-content"><span class="media-content">Start a repair</span></li>
                     <li class="icr-port-nav-sell"><span class="media-content">Start a trade-in</span></li>
                 </ul>
             </nav>
@@ -62,7 +62,7 @@
                         &emsp;&emsp;&bull;&emsp;&emsp;Active&emsp;&emsp;&bull;&emsp;&emsp;Single Plan
                         <small ng-show="plan.openCount > 0">1 of 1 available)</small></th>
                         <th>&nbsp;</th>
-                        <th><a ui-sref="" class="icr-main-link-advantage">View Plan Details</a></th>
+                        <th><a  class="icr-main-link-advantage">View Plan Details</a></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -186,19 +186,27 @@
             <fieldset>
                 <label for="name">
                     <span>Name</span>
-                    <input type="text" id="name">
+                    <input type="text" id="name" placeholder="Jane Doe"
+                        ng-model="user.name"
+                        ui-event="{ focus: 'focusCallback()', blur: 'blurCallback()'}"
+                        ng-class="modelStatus()" required>
                 </label>
                 <label for="email">
                     <span>Email</span>
-                    <input type="email" id="email">
+                    <input type="email" id="email" placeholder="email@email.com"
+                        ng-model="user.email"
+                        ui-event="{ focus: 'focusCallback()', blur: 'blurCallback()'}"
+                        ng-class="modelStatus()" required>
                 </label>
                 <label for="phone">
                     <span>Phone Number</span>
-                    <input type="tel" id="phone">
+                    <input type="tel" id="phone"
+                        ng-model="user.phone" ui-mask="(999) 999-9999" required>
                 </label>
                 <label for="zipcode">
                     <span>Zip Code</span>
-                    <input type="text" id="zipcode">
+                    <input type="text" id="zipcode" maxlength="5" minlength="5" placeholder="44444"
+                        ng-model="user.zipcode" required>
                 </label>
             </fieldset>
             <div class="icr-main-button-group">

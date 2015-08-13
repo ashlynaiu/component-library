@@ -436,6 +436,8 @@ $nav-items: 'membership', 'activity', 'account', 'support', 'perks', 'repair', '
             height: 200px
         &:required
             box-shadow: none
+        &.ng-touched.ng-invalid
+            border-color: $warning !important
         &:focus
             border-color: $advantage-color !important
 
